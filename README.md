@@ -42,9 +42,10 @@ Le serveur sera accessible à l'adresse http://127.0.0.1:8000/.
 ## Lancer notre projet :
 1. Mettre les fichiers et les dossiers du Repository dans un dossier
 2. Ouvrir un terminal et se placer sur ce dossier
-3. Taper sur la ligne de commande : .\env\Scripts\activate
-4. Taper sur la ligne de commande : pip install -r requirements.txt
-5. Taper sur la ligne de commande : python manage.py runserver
-6. Acceder à l'adresse http://127.0.0.1:8000/ .
+3. Taper sur la ligne de commande : virtualenv env
+4. Taper sur la ligne de commande : .\env\Scripts\activate
+5. Taper sur la ligne de commande : pip install -r requirements.txt
+6. Taper sur la ligne de commande : python manage.py runserver
+7. Acceder à l'adresse http://127.0.0.1:8000/ .
 
 # Aymen Benbani (F3) & Maryam Moustaghfir (F3)
