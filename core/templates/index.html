@@ -1,0 +1,45 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} 
+<title>Home</title>
+{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="../static/assets/css/index.css">
+{% endblock stylesheets %}
+{% block content %}
+<div class="d-flex">
+    <div class="w-100 ">
+        
+        {% include "layouts/header.html" %}
+        <div class="netflix-container">
+            <h1 class="highlight">Bienvenue sur notre projet Netflix</h1>
+            <p>Une expérience immersive au cœur de l'analyse et de la visualisation des données cinématographiques !<br>
+
+            Explorez, découvrez et laissez-vous emporter par la magie du cinéma à travers les lentilles de la data science. Bienvenue dans votre nouveau monde cinématique, où les données prennent vie ! 🎥✨
+            </p>
+            <hr>
+
+            <h3 class="highlight">Découvrez les Points Forts :</h3>
+
+            <p class="emoji">📊<b>Tableaux de Classement :</b></p>
+            <p> Plongez dans des classements détaillés, révélant les tendances cinématographiques du monde entier. Qu'il s'agisse des films les plus populaires ou des émissions de télévision les plus en vogue, nos tableaux vous fournissent une vue complète et actualisée.</p>
+
+            <p class="emoji">🚀<b>Dashboard Interactif :</b></p>
+            <p>Explorez un tableau de bord interactif, conçu pour vous offrir une expérience visuelle captivante. Des graphiques dynamiques, des nuages de mots intrigants, et des diagrammes informatifs vous guident à travers l'évolution du paysage audiovisuel.</p>
+
+            <p class="emoji">🎬<b>Système de Recommandation :</b></p>
+            <p> Plongez-vous dans une expérience personnalisée grâce à notre système de recommandation avancé. Basé sur des algorithmes sophistiqués, il analyse vos préférences cinématographiques pour vous suggérer des titres qui correspondent parfaitement à vos goûts.</p>        
+            <hr>
+            <h4 class="highlight">Réalisation :</h4>
+            <p > AYMEN BENBANI & MARYAM MOUSTAGHFIR</p>
+
+        </div>
+        
+    
+    </div>   
+
+</div>
+
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}

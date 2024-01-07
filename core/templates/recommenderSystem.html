@@ -1,0 +1,93 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} 
+<title>Recommender System</title>
+{% endblock title %}
+{% block stylesheets %}
+  <!-- Intégrer Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/assets/css/recommendersystem.css">
+  
+{% endblock stylesheets %}
+{% block content %}
+<div class="d-flex">
+    <div class="w-100">
+        
+        {% include "layouts/header.html" %}
+        <div class="mt-4 ml-3 mr-3">
+            
+            <h1> NETFLIX Recommender System</h1>
+            <form method="post" action="{% url 'app-recommenderSystem' %}">
+                {% csrf_token %}
+                <div class="form-row align-items-center ">
+                    <div class="col-md-3 mb-2 mr-3">
+                        <label for="selected_movie" class="text-light">Select a Movie :</label>
+                        <select class="form-control" name="selected_movie" id="selected_movie">
+                            {% for movie in movies_list %}
+                                {% if movie == selected_movie %}
+                                    <option value="{{ movie }}" selected>{{ movie }}</option>
+                                {% else %}
+                                    <option value="{{ movie }}">{{ movie }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+            
+                    </div>
+                    <div class="col-md-1 mt-4 ml-2">
+                        <button type="submit" class="btn btn-danger btn-block">Show </button>
+                    </div>
+                </div> 
+            </form>
+
+            <div class=" mt-4">
+                {% if recommendations %}
+                <h3>Recommended Movies By Order :</h3>
+                <div class="contain ">
+                    <div class="row ">
+                      <div class="row__inner ml-5 ">
+                        {% for name, poster in recommendations %}
+                        <div class="tile">
+                          <div class="tile__media">
+                            <img class="tile__img" src="{{ poster }}" alt="{{ name }}" style="width: 200px; height: 300px;"> 
+                          </div>
+                          <div class="tile__details">
+                            <div class="tile__title">
+                                <p style="font-size: xx-large;opacity: .6;">#{{ forloop.counter }}</p>
+                                <p style="font-size: larger;white-space: pre-wrap; "> {{ name }}</p>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div> 
+                {% endif %}  
+            </div>
+
+
+
+
+
+
+            <!-- <div class="mt-4">
+                {% if recommendations %}
+                <h3>Recommended Movies :</h3>
+                <div style="display: flex;flex-wrap: wrap;gap: 5px;justify-content: center;align-items: center;">
+                    {% for name, poster in recommendations %}
+                        <div style="display:inline-block;">
+                            <p style="text-align: center;">{{ name }}</p>
+                            <img src="{{ poster }}" alt="{{ name }}" style="width: 200px; height: 300px;">
+                        </div>
+                        
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div> -->
+        </div>
+        
+    </div>
+
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="{% static '/assets/js/index.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,94 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} 
+<title>Dashboard</title>
+{% endblock title %}
+{% block stylesheets %}
+
+<link rel="stylesheet" href="../static/assets/css/dashboard.css">
+<!-- Inclure le lien vers Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock stylesheets %}
+{% block content %}
+<div class="d-flex">
+    <div class="w-100">
+        {% include "layouts/header.html" %}
+        <div style="display: flex;flex-wrap: wrap;gap: 8px;justify-content: center;align-items: center;">
+            <!-- logo netflix-->
+            <div class="chart-container-case">
+                <img src="{% static 'assets/media/logo.png' %}" alt="Netflix Logo" style="width: 180px;">
+                <h3 style="color: #e50914; font-size: 25px;margin-top: -10px;"> Dashboard</h3>
+            </div>
+
+            <!-- Afficher le nombre total des titres -->
+            <div class="chart-container-case">
+                <h2>Total titles : </h2>
+                <h1>{{ total_title_count }}</h1>
+            </div>
+
+            <!-- Afficher le nombre total de séries télévisées -->
+            <div class="chart-container-case">
+                <h2>Total TV Shows : </h2>
+                <h1>{{ total_tv_shows_count }}</h1>
+            </div>
+        
+            <!-- Afficher le nombre total de movies-->
+            <div class="chart-container-case">
+                <h2>Total Movies : </h2>
+                <h1>{{ total_movies_count }}</h1>
+            </div>
+
+        </div>
+        <div style="display: flex;flex-wrap: wrap;gap: 8px;justify-content: center;
+        align-items: center;">
+
+            <div class="chart-container">
+                {{ plot_pie|safe }}
+            </div>
+            <!-- Word Cloud des titres Netflix -->
+            <div class="chart-container">
+                {{ wordcloud|safe }}
+            </div>
+            
+            
+            <!-- Graphique interactif des séries télévisées  -->
+            
+
+            <!-- Graphique interactif des films -->
+            <div class="chart-container">
+                {{ plot_movies|safe }}
+            </div>
+
+        </div>
+
+        <div >
+            <!-- Graphique secteur du pourcentage de TV Shows et Films -->
+            <div class="chart-container">
+                {{ plot_tv_shows|safe }}
+            </div>
+            
+
+            <div class="chart-container">
+                {{ stacked_line_chart|safe }}
+            </div>
+
+            <div class="chart-container">
+                {{ age_rating_pie_chart | safe }}
+            </div>
+
+        
+
+            
+
+        </div>
+        
+
+        
+        
+        
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}

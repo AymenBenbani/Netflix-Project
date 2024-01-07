@@ -1,0 +1,140 @@
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #303030; /* Couleur de fond Netflix */
+    color: #FFFFFF; /* Couleur du texte Netflix */
+}
+h1{
+    color: #e50914;
+}
+h3{
+    color: aliceblue;
+}
+* {
+box-sizing: border-box;
+}
+
+
+p {
+width: 100%;
+max-width: 250px;
+margin: auto;
+}
+a:link,
+a:hover,
+a:active,
+a:visited {
+transition: color 150ms;
+color: #95a5a6;
+text-decoration: none;
+}
+a:hover {
+color: #7f8c8d;
+text-decoration: underline;
+}
+.contain {
+width: 100%;
+}
+.row {
+/* overflow: scroll; */
+width: 100%;
+overflow-x: auto;
+}
+.row::-webkit-scrollbar {
+    height: 8px; /* Vous pouvez ajuster cette valeur selon vos préférences */
+  }
+
+.row__inner {
+transition: 450ms transform;
+font-size: 0;
+white-space: nowrap;
+margin: 70.3125px 0;
+padding-bottom: 10px;
+}
+.tile {
+position: relative;
+display: inline-block;
+width: 250px;
+height: 250px;
+margin-right: 10px;
+font-size: 20px;
+cursor: pointer;
+transition: 450ms all;
+transform-origin: center left;
+}
+.tile__img {
+width: 250px;
+height: 250px;
+-o-object-fit: cover;
+    object-fit: cover;
+}
+.tile__details {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+top: 0;
+font-size: 10px;
+opacity: 0;
+background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+transition: 450ms opacity;
+}
+.tile__details:after,
+.tile__details:before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+display: #000;
+}
+
+.tile__details:before {
+left: 0;
+width: 100%;
+font-size: 30px;
+margin-left: 7px;
+margin-top: -18px;
+text-align: center;
+z-index: 2;
+}
+.tile:hover .tile__details {
+opacity: 1;
+}
+.tile__title {
+position: absolute;
+bottom: 0;
+padding: 10px;
+}
+.row__inner:hover {
+transform: translate3d(-62.5px, 0, 0);
+}
+.row__inner:hover .tile {
+opacity: 0.3;
+}
+.row__inner:hover .tile:hover {
+transform: scale(1.5);
+opacity: 1;
+}
+.tile:hover ~ .tile {
+transform: translate3d(125px, 0, 0);
+}
+/* Largeur de la barre de défilement */
+
+  
+  /* Couleur de fond de la barre de défilement */
+  .row::-webkit-scrollbar-track {
+    background-color: #303030;;
+  }
+  
+  /* Couleur de la poignée (le bouton qui peut être déplacé) */
+  .row::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+  }
+  
+  /* Couleur de survol de la poignée */
+  .row::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+

@@ -1,0 +1,23 @@
+body
+{
+    font-family: 'Arial', sans-serif;
+    background-color: #303030; /* Couleur de fond Netflix */
+    color: #FFFFFF; 
+}
+h1
+{
+    color: #e50914;
+}
+h9
+{
+    color: rgba(255,255,255,.9);
+}
+.rank
+{
+    text-align: center;font-size: larger;color: beige;
+}
+.cumulative
+{
+text-align: center;
+font-size: medium;
+}

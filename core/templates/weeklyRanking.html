@@ -1,0 +1,84 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} 
+<title>Weekly Ranking</title>
+{% endblock title %}
+{% block stylesheets %}
+  <!-- Intégrer Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/assets/css/weeklyranking.css">
+{% endblock stylesheets %}
+{% block content %}
+<div class="d-flex">
+    <div class="w-100 ">
+        {% include "layouts/header.html" %} 
+        <div class="mt-4 ml-3 mr-3" >
+            <div class="mb-3">
+                <h1 >Top 10 Weekly Rankings</h1>
+                <h9 class="ml-5">As of December, 2023</h9>
+            </div>
+            <!-- Ajouter une liste déroulante pour choisir le pays et la catégorie -->
+            <form method="post" action="{% url 'app-weeklyRanking' %}">
+                {% csrf_token %}
+                <div class="form-row align-items-center ">
+                    <div class="col-md-3 mb-2 mr-3">
+                        <label for="selected_country">Choose a Country :</label>
+                        <select class="form-control" name="selected_country" id="selected_country">
+                            {% for country in countries %}
+                                <!-- <option value="{{ country }}" ></option>>{{ country }}</option> -->
+                                <option value="{{ country }}" {% if country == selected_country %}selected{% endif %}>{{ country }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-2 mr-2">
+                        <label for="selected_category">Choose a Category : </label>
+                        <select class="form-control" name="selected_category" id="selected_category">
+                            <option value="Films" {% if selected_category == 'Films' %}selected{% endif %}>Movies</option>
+                            <option value="TV" {% if selected_category == 'TV' %}selected{% endif %}>TV Show</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-2 mr-3">
+                        <label for="selected_week">Choose a Week :</label>
+                        <select class="form-control" name="selected_week" id="selected_week">
+                            {% for week in weeks %}
+                                <option value="{{ week }}" {% if week == selected_week %}selected{% endif %}>{{ week }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-1 mt-4 ml-1 mb-2 mr-3">
+                        <button type="submit" class="btn btn-danger btn-block">Show </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-12 ">
+            <!-- Afficher les données dans un tableau avec Bootstrap -->
+            <table class="table table-bordered table-striped table-hover table-dark table-auto mt-4 ">
+                <thead>
+                    <tr>
+                        <th scope="col">Weekly Rank</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Cumulative Weeks in Top 10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in data %}
+                        <tr>
+                            <td class="rank"> <b># {{ entry.weekly_rank }}</b></td>
+                            <td >{{ entry.show_title }}</td>
+                            <td class="cumulative">{{ entry.cumulative_weeks_in_top_10 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="{% static '/assets/js/index.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock scripts %}

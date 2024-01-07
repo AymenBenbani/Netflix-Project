@@ -1,0 +1,88 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} 
+<title>Most Popular</title>
+{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="../static/assets/css/mostpopular.css">
+{% endblock stylesheets %}
+{% block content %}
+<div class="d-flex">
+    <div class="w-100">
+        {% include "layouts/header.html" %}
+        <!-- Division du Formulaire pour choisir la langue d'origine -->
+        <div class="mt-4 ml-3 mr-3">
+            <h1>Most Popular Films</h1>
+            <form method="post" action="{% url 'app-mostPopular' %}">
+                {% csrf_token %}
+                <div class="form-row align-items-center">
+                    <div class="col-md-3 mb-2 mr-3">
+                        <label for="selected_language">Choose a Language:</label>
+                        <select class="form-control" name="selected_language" id="selected_language">
+                            {% for language in languages %}
+                                <option value="{{ language }}" {% if language == selected_language %}selected{% endif %}>{{ language }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-1 mt-4 mr-2">
+                        <button type="submit" class="btn btn-danger btn-block">Show</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 ">
+            <div class="contain">
+                <div class="row">
+                  <div class="row__inner ml-5">
+                    {% for entry in data %}
+                    <div class="tile">
+                      <div class="tile__media">
+                        <img class="tile__img" src="{{ entry.poster }}" alt="{{ entry.title }}" > 
+                      </div>
+                      <div class="tile__details">
+                        <div class="tile__title">
+                            <p style="font-size: xx-large;opacity: .6;">#{{ forloop.counter }}</p>
+                            <p style="font-size: larger;white-space: pre-wrap; "> {{ entry.title }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>   
+        </div>
+        <div class="mt-4">
+            <h5  style="color: rgba(255,255,255,.9); text-align: center;">Top 10 Popular Films : ( {{ selected_language }} )</h5>
+        </div>
+        <!-- Division du tableau bootstrap -->
+        <div class="col-12">
+            <table class="table table-bordered table-striped table-hover table-dark table-auto mt-4">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;" scope="col">Rank</th>
+                        <th scope="col">Title</th>
+                        <th style="text-align: center;" scope="col">Popularity</th>
+                        <th style="text-align: center;" scope="col">Vote Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in data %}
+                        <tr>
+                            <td style="text-align: center;font-size: larger;color: beige;">{{ forloop.counter }}</td>
+                            <td>{{ entry.title }}</td>
+                            <td style="text-align: center;font-size: medium;">{{ entry.popularity }}</td>
+                            <td style="text-align: center;font-size: medium;">{{ entry.vote_average }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="{% static '/assets/js/index.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock scripts %}

@@ -1,0 +1,31 @@
+.body 
+{
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #303030; /* Couleur de fond sombre */
+    color: #ffffff; /* Couleur du texte */
+}
+.netflix-container 
+{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: #1e1e1e; 
+    /* background-image: url(../media/background.jpg);
+    filter: blur(50%); */
+    border-radius: 10px; /* Coins arrondis pour un aspect plus esthétique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour démarquer le conteneur du fond */
+}
+.highlight 
+{
+    color: #e50914; /* Rouge Netflix pour mettre en évidence */
+    font-weight: bold;
+}
+.emoji 
+{
+    font-size: 1.2em;
+    margin-right: 5px;
+}
