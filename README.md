@@ -40,8 +40,8 @@ Le serveur sera accessible à l'adresse http://127.0.0.1:8000/.
   Utilisez les informations d'identification de l'administrateur créées lors des migrations.
 
 ## Lancer notre projet :
-1. Mettre les fichiers et les dossiers du Repository dans un dossier
-2. Ouvrir un terminal et se placer sur ce dossier
+1. Ouvrir un terminal
+2. Se placer dans le dossier ou se trouve manage.py
 3. Taper sur la ligne de commande : virtualenv env
 4. Taper sur la ligne de commande : .\env\Scripts\activate
 5. Taper sur la ligne de commande : pip install -r requirements.txt
