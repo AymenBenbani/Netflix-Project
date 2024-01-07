@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Diagramme de Gantt" company="ISIMA" webLink="http://" view-date="2023-10-16" view-index="0" gantt-divider-location="367" resource-divider-location="300" version="3.2.3247" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="209" order="0"/>
+        <field id="tpd4" name="Date de début" width="79" order="1"/>
+        <field id="tpd5" name="Date de fin" width="78" order="2"/>
+        <option id="taskLabelUp" value="resources"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="color.recent">
+            <![CDATA[#00ccff #33ff00 #f4f4f4 #0066ff]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="4" name="Définition des besoins et cahier des charges" color="#33ff00" meeting="false" start="2023-10-24" duration="3" complete="0" thirdDate="2023-12-24" thirdDate-constraint="0" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" name="analyse et nettoyage des données" color="#33ff00" meeting="false" start="2023-10-27" duration="3" complete="0" thirdDate="2023-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[-phase d'exploration des données pour examiner les caractéristiques, les distributions, les relations, etc., pour mieux comprendre les données.
+Traiter les valeurs manquantes, supprimer les données inutiles et dupliquées ]]>
+            </notes>
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="Classement.html (backend)" color="#33ff00" meeting="false" start="2023-10-30" duration="7" complete="0" thirdDate="2023-10-23" thirdDate-constraint="0" expand="false">
+            <notes>
+                <![CDATA[Implémenter une vue (classement) pour afficher le classement des Top 10 films et séries par pays dans views.py 
+
+outils : django-python , jupyter , pandas
+]]>
+            </notes>
+        </task>
+        <task id="12" name="Classement.html (frontend)" color="#33ff00" meeting="false" start="2023-10-30" duration="7" complete="0" thirdDate="2023-11-03" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+            <notes>
+                <![CDATA[Implémenter une vue (classement) pour afficher le classement des Top 10 films et séries par pays dans views.py
+Utilisation de bootstrap , css , html ]]>
+            </notes>
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="13" name="dashboard.html" color="#33ff00" meeting="false" start="2023-11-06" duration="8" complete="0" thirdDate="2023-10-23" thirdDate-constraint="0" expand="false">
+            <notes>
+                <![CDATA[Implémenter une vue dashboard) pour afficher les 6 différents graphiques 
+
+aymen :  3 graphes interactifs
+maryam: 3 graphes interactifs
+
+outils : python , jupyter , plotly , wordcloud, pandas]]>
+            </notes>
+            <depend id="14" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="14" name="index.html" color="#33ff00" meeting="false" start="2023-11-14" duration="3" complete="0" thirdDate="2023-11-01" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[Implémenter une vue index pour afficher le homepage de l'application web 
+
+
+outils : bootstrap , css , html , python(views.py)]]>
+            </notes>
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="15" name="prediction.html" color="#33ff00" meeting="false" start="2023-11-17" duration="13" complete="0" thirdDate="2023-11-20" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[Implémenter une vue 'prediction' pour afficher le ' NETFLIX Reccomander system' qui suggère 6 titres à partir d'un seul titre en utilisant le maching learning
+
+ On a travaiillé tous les deux sur cette partie vu qu'elle est la plus importante et nécessite l'utilisation d'un modèle nouveau pour nous. C'est pour cela on l'a consacré plus de temps.
+
+ 
+
+outils : python , jupyter , pandas , machine learning , CountVectorizer...]]>
+            </notes>
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="17" name="popular.html" color="#33ff00" meeting="false" start="2023-11-30" duration="8" complete="0" thirdDate="2023-10-29" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[Page contenant les 10 titres les plus populaires english/non english + poster contenant les images de ces titres 
+
+]]>
+            </notes>
+            <depend id="18" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="18" name="Rapport" color="#33ff00" meeting="false" start="2023-12-08" duration="4" complete="0" thirdDate="2023-10-20" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[Rapport contenant les différents technologies utilisés + diagrammes]]>
+            </notes>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Aymen_Benbani" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="Maryam_Moustaghfir" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="4" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous>
+        <previous-tasks name="">
+            <previous-task id="0" start="2024-01-01" duration="1" meeting="false" super="false"/>
+            <previous-task id="1" start="2024-01-01" duration="2" meeting="false" super="false"/>
+        </previous-tasks>
+    </previous>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="Aymen_Benbani"/>
+        <role id="2" name="Maryam_Moustaghfir"/>
+    </roles>
+</project>
