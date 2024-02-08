@@ -48,4 +48,4 @@ Le serveur sera accessible à l'adresse http://127.0.0.1:8000/.
 6. Taper sur la ligne de commande : python manage.py runserver
 7. Acceder à l'adresse http://127.0.0.1:8000/ .
 
-# Aymen Benbani (F3) & Maryam Moustaghfir (F3)
+# Aymen Benbani (F3) 
